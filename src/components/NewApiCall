@@ -1,0 +1,47 @@
+import React from 'react';
+
+
+export default class getExpense extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onTextChange = this.onTextChange.bind(this);
+
+    this.state = {
+      text: '',
+      getJson: ''
+    };
+  }
+
+  onTextChange = (e) => {
+    const note = e.target.value;
+    this.setState(() => ({ note }));
+    if(note.length>3){
+        fetch(' ')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+   this.setState(() => ({ getJson:myJson }));
+  });
+    }
+  };
+
+  
+  render() {
+    return (
+      <div>
+  
+          <input
+            type="text"
+            placeholder="text"
+            value={this.state.text}
+            onChange={this.onTextChange}
+          />
+          
+          
+        </form>
+        <ChildComponet key ={getJson.id} listItem = {getJson}/>
+      </div>
+    )
+  }
+}
